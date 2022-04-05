@@ -1,13 +1,16 @@
-const getRequest = (req, res) => {
-    const adatok = {
-        'nev': 'Jane Doe'
-    };
-    res.render('megjelenit', { adatok });
+const User = require('../models/userModel');
+
+const getRequest = async (req, res) => {
+    try {
+        const adatok = await User.find();
+        res.render('index', { adatok });
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 const postRequest = (req, res) => {
-    console.log(req.body);
-    res.send(req.body);
+    res.send("Hello");
 };
 
 module.exports = { getRequest, postRequest };

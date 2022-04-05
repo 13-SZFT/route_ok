@@ -9,13 +9,13 @@
 </head>
 
 <body>
-    <form action="/feltolt" method="post">
-        <label for="nev">Név:</label>
-        <input type="text" name="nev" id="nev">
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" id="email">
-        <input type="submit" value="Elküld">
-    </form>
+    <% for (let i=0; i < adatok.length; i++) { %>
+        <h1>
+            <%= adatok[i].nev %>
+        </h1>
+        <p>e-mail cím: <%= adatok[i].email %>
+        </p>
+        <% } %>
 </body>
 
 </html>
